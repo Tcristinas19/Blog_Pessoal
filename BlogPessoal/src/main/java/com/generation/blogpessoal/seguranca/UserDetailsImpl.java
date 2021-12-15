@@ -27,15 +27,15 @@ public class UserDetailsImpl implements UserDetails {
 		return serialVersionUID;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setPassword(String password, String senha) {
+		this.setSenha(senha);
 	}
 
-	private String password;
+	private String senha;
 	
 	public UserDetailsImpl(Usuario user) {
 		this.userName = user.getUsuario();
-		this.password = user.getSenha();
+		this.setSenha(user.getSenha());
 		
 	}
 	
@@ -82,6 +82,14 @@ public class UserDetailsImpl implements UserDetails {
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
 }
